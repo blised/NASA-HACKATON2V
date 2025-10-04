@@ -44,38 +44,53 @@ export function LiveTrackingMap() {
   const [sharks, setSharks] = useState<Shark[]>(initialSharks)
 
   // Carga de pings desde tu API FastAPI
+  // useEffect(() => {
+  //   const controller = new AbortController()
+
+  //   async function loadPings() {
+  //     for (const s of sharks) {
+  //       const slug = slugBySharkId[s.id]
+  //       if (!slug) continue
+
+  //       try {
+  //         const res = await fetch(`http://localhost:8000/ping/${slug}`, { signal: controller.signal })
+  //         const data = await res.json()
+  //         setSharks((prev) =>
+  //           prev.map((p) =>
+  //             p.id === s.id
+  //               ? {
+  //                   ...p,
+  //                   latestPingText: data.latest_ping_text ?? "N/D",
+  //                   latestPingISO: data.latest_ping_iso,
+  //                   status: isActive(data.latest_ping_iso) ? "activo" : "inactivo",
+  //                 }
+  //               : p
+  //           )
+  //         )
+  //       } catch (err) {
+  //         console.error("Error cargando ping", slug, err)
+  //       }
+  //     }
+  //   }
+
+  //   loadPings()
+  //   return () => controller.abort()
+  // }, []) // carga una sola vez
   useEffect(() => {
-    const controller = new AbortController()
-
-    async function loadPings() {
-      for (const s of sharks) {
-        const slug = slugBySharkId[s.id]
-        if (!slug) continue
-
-        try {
-          const res = await fetch(`http://localhost:8000/ping/${slug}`, { signal: controller.signal })
-          const data = await res.json()
-          setSharks((prev) =>
-            prev.map((p) =>
-              p.id === s.id
-                ? {
-                    ...p,
-                    latestPingText: data.latest_ping_text ?? "N/D",
-                    latestPingISO: data.latest_ping_iso,
-                    status: isActive(data.latest_ping_iso) ? "activo" : "inactivo",
-                  }
-                : p
-            )
-          )
-        } catch (err) {
-          console.error("Error cargando ping", slug, err)
-        }
-      }
+    async function load() {
+      const res = await fetch("/api/sharks?slug=cayo")
+      const data = await res.json()
+      // Adjunta el ping al tiburón que quieras
+      setSharks(prev =>
+        prev.map(s =>
+          s.id === 2
+            ? { ...s, latestPingText: data.latest_ping_text ?? "N/D" }
+            : s
+        )
+      )
     }
-
-    loadPings()
-    return () => controller.abort()
-  }, []) // carga una sola vez
+    load()
+  }, [])
 
   return (
     <section id="live-tracking" className="w-full bg-background py-20">
