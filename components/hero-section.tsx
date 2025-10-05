@@ -1,3 +1,8 @@
+/**
+ * AI-Assisted: Text translated to English by GPT-5 on 2025-10-05 (requested by Jose).
+ * Structure supported by Vercel platform.
+ */
+
 "use client"
 
 import { ChevronDown } from "lucide-react"
@@ -27,7 +32,7 @@ export function HeroSection() {
         >
           <img
             src="/whale-shark-swimming-underwater-blue-ocean.jpg"
-            alt="Tiburón ballena"
+            alt="Whale shark"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-primary/20" />
@@ -40,7 +45,7 @@ export function HeroSection() {
         >
           <img
             src="/great-white-shark-ocean-surface-dramatic.jpg"
-            alt="Gran tiburón blanco"
+            alt="Great white shark"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-primary/30" />
@@ -53,7 +58,7 @@ export function HeroSection() {
         >
           <img
             src="/shark-silhouette-deep-blue-ocean-underwater.jpg"
-            alt="Tiburón en el océano"
+            alt="Shark in the ocean"
             className="h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-primary/20" />
@@ -64,18 +69,17 @@ export function HeroSection() {
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
         <div className="max-w-4xl space-y-6">
           <h1 className="text-balance font-sans text-5xl font-bold tracking-tight text-white md:text-7xl lg:text-8xl">
-            Rastreador de Tiburones
+            AURORA
           </h1>
-          <p className="text-pretty text-xl text-white/90 md:text-2xl lg:text-3xl">
-            Descubre la ubicación de tiburones en tiempo real y explora el fascinante mundo de estos majestuosos
-            depredadores marinos
+          <p className="text-pretty text-xl text-white/90 md:text-3xl lg:text-3xl">
+            Ultra-Resolution Ocean Analysis for Advanced Tracking
           </p>
           <Button
             onClick={scrollToTracking}
             size="lg"
             className="mt-8 bg-accent text-accent-foreground hover:bg-accent/90"
           >
-            Explorar Ahora
+            Explore Now
             <ChevronDown className="ml-2 h-5 w-5" />
           </Button>
         </div>

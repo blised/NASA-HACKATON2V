@@ -7,7 +7,7 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Rastreador de Tiburones | Seguimiento en Tiempo Real",
+  title: "AURORA | Ultra-Resolution Ocean Analysis for Advanced Tracking",
   description:
     "Descubre la ubicación de tiburones en tiempo real y aprende sobre el tiburón ballena y el gran tiburón blanco",
   generator: "v0.app",
